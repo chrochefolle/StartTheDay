@@ -1,0 +1,1 @@
+# This file contains documentation for the assets used in the frontend, such as images or fonts.

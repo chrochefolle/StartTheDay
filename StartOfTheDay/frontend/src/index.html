@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Démarrer la journée sur le bon pied</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f4f4f9;
+    }
+    .section {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #f28482;
+    }
+    .weather, .quote, .image {
+      margin-bottom: 20px;
+    }
+    .word-text {
+      font-weight: bold;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="image" class="section">
+    <img id="quote-image" src="" alt="Image générée" />
+    <h2>Citation du Jour</h2>
+    <p id="quote-text"></p>
+    <p id="quote-author"></p>
+    <h2>Météo</h2>
+    <div id="weather-data"></div>
+    <h2>Mot du Jour</h2>
+      <p class="word-text" id="word-text"></p>
+      <p id="word-definition"></p>
+  </div>
+  <script src="./js/scripts.js"></script>
+</body>
+</html>

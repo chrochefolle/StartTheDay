@@ -1,0 +1,7 @@
+/.DS_Store
+/.vscode
+/logs
+
+# Fichier de configuration
+config.js
+.env
