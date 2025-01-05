@@ -33,6 +33,10 @@
       height: auto;
       border-radius: 8px;
     }
+    .pronunciation {
+    font-style: italic;
+    color: gray;
+}
   </style>
 </head>
 <body>
@@ -48,6 +52,11 @@
     <h2>Mot du Jour</h2>
       <p class="word-text" id="word-text"></p>
       <p id="word-definition"></p>
+    <div id="word-of-the-day">
+      <p id="french-word"></p>
+      <p id="thai-word"></p> <!-- Affiche le mot en thaï avec la prononciation -->
+      <p id="malagasy-word"></p>
+    </div>
   </div>
   <script type="module" src="./js/scripts.js"></script>
 </body>

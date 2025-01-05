@@ -201,10 +201,61 @@ async function displayQuote() {
   document.getElementById('quote-image').src = image.url;
 }
 
+
+async function fetchWordOfTheDay() {
+  try {
+    const response = await fetch('./js/words.json');
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP : ${response.status} ${response.statusText}`);
+    }
+    const words = await response.json();
+
+    const dayOfYear = new Date().getDate() - 1; // Jour de l'année (0-364)
+
+    // Vérifiez que les tableaux existent et ne sont pas vides
+    if (!words.français || words.français.length === 0) {
+      throw new Error("La liste de mots en français est vide ou non disponible.");
+    }
+    if (!words.thaï || words.thaï.length === 0) {
+      throw new Error("La liste de mots en thaï est vide ou non disponible.");
+    }
+    if (!words.malgache || words.malgache.length === 0) {
+      throw new Error("La liste de mots en malgache est vide ou non disponible.");
+    }
+
+    // Calcul de l'index avec le modulo pour éviter de dépasser les limites
+    const index = dayOfYear % words.français.length;
+
+    console.log("Index calculé :", index);
+//    console.log("Mots en français :", words.français);
+//    console.log("Mots en thaï :", words.thaï);
+//    console.log("Mots en malgache :", words.malgache);
+
+    // Récupérer les mots pour chaque langue avec des vérifications supplémentaires
+    const frenchWord = words.français[index] || "Mot introuvable";
+    const thaiWord = words.thaï[index]?.word || "Mot introuvable";
+    const thaiPronunciation = words.thaï[index]?.pronunciation || "";
+    const malagasyWord = words.malgache[index] || "Mot introuvable";
+
+
+
+    // Afficher les mots dans le DOM
+    document.getElementById('french-word').textContent = frenchWord;
+    document.getElementById('thai-word').innerHTML = `${thaiWord} (<span class="pronunciation">${thaiPronunciation}</span>)`;
+    document.getElementById('malagasy-word').textContent = malagasyWord;
+  } catch (error) {
+    console.error("Erreur dans fetchWordOfTheDay :", error);
+    document.getElementById('french-word').textContent = "Erreur : mot non disponible";
+    document.getElementById('thai-word').textContent = "Erreur : mot non disponible";
+    document.getElementById('malagasy-word').textContent = "Erreur : mot non disponible";
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   await displayAdditionalInfo();
   await displaySaintOfTheDay();
   await displayWeather();
   await displayWord();
+  await fetchWordOfTheDay();
   await displayQuote();
 });
