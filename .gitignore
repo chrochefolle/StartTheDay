@@ -5,3 +5,4 @@
 # Fichier de configuration
 config.js
 .env
+console-errors.txt

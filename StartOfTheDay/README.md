@@ -1,4 +1,6 @@
-# My Website Project
+# "Start Of The Day" project
+
+This project aims at generate an image that can be shared on social networks message  containing date, saints of the day, quotes of the day with corresponding AI generated images, weather for a list of town and word of the day.
 
 This project is a full-stack web application consisting of a backend built with Node.js and Express, and a frontend developed using HTML, CSS, and JavaScript.
 
